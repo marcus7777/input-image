@@ -1,0 +1,17 @@
+<link rel="import" href="../image-base64/image-base64.html">
+<link rel="import" href="../load-image/load-image.html">
+<!--
+  `<input-image></input-image>` Convert and resize an image to the size you need and exposes it is a string
+  @demo demo.html
+-->
+<dom-module id="input-image">
+  <template>
+    <load-image label="{{label}}" src="{{big}}"></load-image>
+    <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" ></image-base64>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "input-image",
+  })
+</script>

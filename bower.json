@@ -1,0 +1,14 @@
+{
+  "name": "input-image",
+  "version": "1.0.0",
+  "description": "Convert and resize an image to the size you need and exposes it is a string",
+  "main": "input-image.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "load-image": "*",
+    "image-base64": "marcus7777/image-base64#bd6a8cc565"
+  }
+}
