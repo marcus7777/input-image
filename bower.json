@@ -8,7 +8,7 @@
     "web-components"
   ],
   "dependencies": {
-    "load-image": "*",
-    "image-base64": "marcus7777/image-base64#bd6a8cc565"
+    "load-image": "marcus7777/load-image",
+    "image-base64": "marcus7777/image-base64"
   }
 }
