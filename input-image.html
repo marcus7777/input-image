@@ -7,7 +7,7 @@
 <dom-module id="input-image">
   <template>
     <template is="dom-if" if="{{value}}">
-      <img src="{{value}}" on-tag="remove" />
+      <img src="{{value}}" on-tap="remove" />
     </template>
     <template is="dom-if" if="{{!value}}">
       <load-image label="{{label}}" src="{{big}}"></load-image>
