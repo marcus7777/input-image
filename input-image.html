@@ -6,8 +6,13 @@
 -->
 <dom-module id="input-image">
   <template>
-    <load-image label="{{label}}" src="{{big}}"></load-image>
-    <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" ></image-base64>
+    <template is="dom-if" if="{{value}}">
+      <img src="{{value}}" on-tag="remove" />
+    </template>
+    <template is="dom-if" if="{{!value}}">
+      <load-image label="{{label}}" src="{{big}}"></load-image>
+      <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" ></image-base64>
+    </template> 
   </template>
 </dom-module>
 <script>
@@ -15,11 +20,14 @@
     is: "input-image",
     properties:{
       value:{
-        notify:true, type:String,
+        notify: true, type: String, value: "",
       },
       width: {
-        value: 200, type:Number
+        value: 200, type:Number,
       },
-    }
+    },
+    remove: function (){
+      this.value = ""
+    },
   })
 </script>
