@@ -11,7 +11,7 @@
     </template>
     <template is="dom-if" if="{{!value}}">
       <load-image label="{{label}}" src="{{big}}"></load-image>
-      <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" ></image-base64>
+      <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" max-heigth="{{max-heigth}}" max-width="{{max-width}}"></image-base64>
     </template> 
   </template>
 </dom-module>
