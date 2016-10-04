@@ -10,8 +10,8 @@
       <img src="{{value}}" on-tap="remove" />
     </template>
     <template is="dom-if" if="{{!value}}">
-      <load-image label="{{label}}" src="{{big}}"></load-image>
-      <image-base64 url="{{big}}" base64="{{value}}" width="{{width}}" max-height="{{maxHeight}}" max-width="{{maxWidth}}"></image-base64>
+      <load-image orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
+      <image-base64 orientation="{{orientation}}" url="{{big}}" base64="{{value}}" width="{{width}}" max-height="{{maxHeight}}" max-width="{{maxWidth}}"></image-base64>
     </template> 
   </template>
 </dom-module>
