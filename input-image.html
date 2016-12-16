@@ -11,7 +11,9 @@
     </template>
     <template is="dom-if" if="{{!value}}">
       <load-image orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
-      <image-base64 orientation="{{orientation}}" url="{{big}}" base64="{{value}}" width="{{width}}" max-height="{{maxHeight}}" max-width="{{maxWidth}}"></image-base64>
+      <template is="dom-if" if="[[orientation]]" restamp>
+        <image-base64 orientation="[[orientation]]" url="{{big}}" base64="{{value}}" width="{{width}}" max-height="{{maxHeight}}" max-width="{{maxWidth}}"></image-base64>
+      </template>
     </template> 
   </template>
 </dom-module>
@@ -31,6 +33,7 @@
     },
     remove: function (){
       this.value = ""
+      this.orientation = ""
     },
   })
 </script>
