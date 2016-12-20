@@ -13,7 +13,7 @@
       <load-image orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
     </template>
     <template is="dom-if" if="{{big}}">
-      <image-base64 hidden="{{!value}}" orientation="[[orientation]]" url="{{big}}" base64="{{value}}" width="{{width}}" max-height="{{maxHeight}}" max-width="{{maxWidth}}"></image-base64>
+      <image-base64 hidden="{{!value}}" orientation="[[orientation]]" url="{{big}}" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
     </template>
   </template>
 </dom-module>
