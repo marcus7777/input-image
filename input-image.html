@@ -37,6 +37,8 @@
     ready: function (){
       if (!this.big) {
         this.big = this.value
+      } else if (this.big !== this.value) {
+        this.big = this.value
       }
     },
   })
