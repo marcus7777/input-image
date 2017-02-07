@@ -10,5 +10,9 @@
   "dependencies": {
     "load-image": "marcus7777/load-image",
     "image-base64": "marcus7777/image-base64"
+  },
+  "devDependencies": {
+    "iron-test-helpers": "*",
+    "web-component-tester": "^5.0.0"
   }
 }
