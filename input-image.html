@@ -27,6 +27,9 @@
       width: {
         value: 200, type:Number,
       },
+      setWidth: {
+        value: 200, type:Number,
+      },
       big: {
         type: String
       }
@@ -34,7 +37,7 @@
     remove: function (){
       this.big = ""
       this.value = ""
-      this.set("width", 200)
+      this.set("width", this.setWidth)
       this.orientation = ""
     },
     ready: function (){
