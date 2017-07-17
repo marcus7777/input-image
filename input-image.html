@@ -12,7 +12,7 @@
     <template is="dom-if" if="{{!value}}">
       <load-image orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
     </template>
-    <template is="dom-if" if="{{big}}">
+    <template is="dom-if" if="{{encode}}">
       <image-base64 log="[[log]]" hidden="{{!value}}" orientation="[[orientation]]" url="{{big}}" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
     </template>
   </template>
@@ -33,10 +33,16 @@
       big: {
         type: String
       },
+      encode:{
+        computing:"_encode(big,orientation)",
+      },
       log: {
         type: Boolean,
         value: false
       },
+    },
+    _encode: function(big,orientation){
+      return !!big && orientation == 1
     },
     remove: function (){
       this.value = ""
