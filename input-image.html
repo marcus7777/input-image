@@ -7,10 +7,10 @@
 <dom-module id="input-image">
   <template>
     <template is="dom-if" if="[[value]]">
-      <img style="max-width:200px" src="{{value}}" title="[[exifInfo]]" on-load="ready" on-tap="remove" />
+      <img style="max-width:200px" src="{{value}}" on-load="ready" on-tap="remove" />
     </template>
     <template is="dom-if" if="[[!value]]">
-      <load-image exif="{{exif}}" title="[[exifInfo]]" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
+      <load-image exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
     </template>
     <template is="dom-if" if="[[gps]]">
       <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map link</a>
@@ -41,7 +41,7 @@
         type: Boolean,
         value: false
       },
-      exifInfo: {
+      title: {
         computed:"exifToInfo(exif)"
       },
       gps: {
@@ -64,11 +64,12 @@
           var ll = toDecimal(exif.GPSLongitude) + exif.GPSLongitudeRef + "," + toDecimal(exif.GPSLatitude) + exif.GPSLatitudeRef
           output = output + " with the longitude and latitude of : " + ll + "; "
           this.gps = ll
+        } else {
+          this.gps = ""
         }
         if (exif.Flash) {
           output = output + " " + exif.Flash
         }
-        https://www.google.co.uk/maps/search/
         return output
       } else  {
         return "No exif data was detected"
