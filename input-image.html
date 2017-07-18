@@ -6,16 +6,19 @@
 -->
 <dom-module id="input-image">
   <template>
-    <template is="dom-if" if="{{value}}">
+    <template is="dom-if" if="[[value]]">
       <img style="max-width:200px" src="{{value}}" title="[[exifInfo]]" on-load="ready" on-tap="remove" />
     </template>
-    <template is="dom-if" if="{{!value}}">
+    <template is="dom-if" if="[[!value]]">
       <load-image exif="{{exif}}" title="[[exifInfo]]" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
     </template>
-    
-    <template is="dom-if" if="{{big}}">
+    <template is="dom-if" if="[[gps]]">
+      <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map link</a>
+    </template>
+    <template is="dom-if" if="[[big]]">
       <image-base64 log="[[log]]" hidden="{{!value}}" orientation="[[orientation]]" url="{{big}}" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
     </template>
+    
   </template>
 </dom-module>
 <script>
@@ -41,6 +44,9 @@
       exifInfo: {
         computed:"exifToInfo(exif)"
       },
+      gps: {
+        notify: true,
+      },
     },
     exifToInfo: function(exif) {
       var output = ""
@@ -55,11 +61,14 @@
           output = "Photo taken on a " + exif.Make + " " + exif.Model
         }
         if (exif.GPSLongitude + exif.GPSLatitude) {
-          output = output + " with the longitude and latitude of :" + toDecimal(exif.GPSLongitude) + exif.GPSLongitudeRef + "," + toDecimal(exif.GPSLatitude) + exif.GPSLatitudeRef
+          var ll = toDecimal(exif.GPSLongitude) + exif.GPSLongitudeRef + "," + toDecimal(exif.GPSLatitude) + exif.GPSLatitudeRef
+          output = output + " with the longitude and latitude of : " + ll + "; "
+          this.gps = ll
         }
         if (exif.Flash) {
           output = output + " " + exif.Flash
         }
+        https://www.google.co.uk/maps/search/
         return output
       } else  {
         return "No exif data was detected"
