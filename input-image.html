@@ -7,7 +7,7 @@
 <dom-module id="input-image">
   <template>
     <template is="dom-if" if="{{value}}">
-      <img style="max-width:200px" src="{{value}}" on-load="ready" on-tap="remove" />
+      <img style="max-width:200px" src="{{value}}" title="[[exifInfo]]" on-load="ready" on-tap="remove" />
     </template>
     <template is="dom-if" if="{{!value}}">
       <load-image exif="{{exif}}" title="[[exifInfo]]" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
@@ -49,14 +49,14 @@
            (60 * number[1].denominator) + number[2].numerator / (3600 * number[2].denominator);
       }
       if (exif) {
-        if (exif.make + exif.model) {
-          output = "Photo taken on a " + exif.make + " " + exif.model
+        if (exif.Make + exif.Model) {
+          output = "Photo taken on a " + exif.Make + " " + exif.Model
         }
         if (exif.GPSLongitude + exif.GPSLatitude) {
           output = output + " with the longitude and latitude of :" + toDecimal(exif.GPSLongitude) + exif.GPSLongitudeRef + "," + toDecimal(exif.GPSLatitude) + exif.GPSLatitudeRef
         }
-        if (exif.flash) {
-          output = output + " " + exif.flash
+        if (exif.Flash) {
+          output = output + " " + exif.Flash
         }
         return output
       } else  {
