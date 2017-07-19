@@ -7,7 +7,7 @@
 <dom-module id="input-image">
   <template>
     <template is="dom-if" if="[[value]]">
-      <img style="max-width:200px" src="{{value}}" on-load="ready" on-tap="remove" />
+      <img style="max-width:200px" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
     </template>
     <template is="dom-if" if="[[!value]]">
       <load-image exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
@@ -16,7 +16,7 @@
       <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map link</a>
     </template>
     <template is="dom-if" if="[[big]]">
-      <image-base64 log="[[log]]" hidden="{{!value}}" orientation="[[orientation]]" url="[[big]]" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
+      <image-base64 log="[[log]]" hidden="[[!value]]" orientation="[[orientation]]" url="[[big]]" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
     </template>
   </template>
 </dom-module>
