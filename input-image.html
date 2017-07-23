@@ -70,9 +70,23 @@
           output = "Photo taken on a " + exif.Make + " " + exif.Model
         }
         if (exif.GPSLongitude + exif.GPSLatitude) {
-          var ll = toDecimal(exif.GPSLongitude) + exif.GPSLongitudeRef + "," + toDecimal(exif.GPSLatitude) + exif.GPSLatitudeRef
-          output = output + " with a longitude and latitude of : " + ll + "; "
-          this.gps = ll
+          //52.7204944,-2.7476417
+          var lat
+          if ("N" == exif.GPSLatitudeRef) {
+            lat = toDecimal(exif.GPSLatitude)
+          } else {
+            lat = -toDecimal(exif.GPSLatitude)
+          }
+          var long
+          if ("E" == exif.GPSLongitudeRef) {
+            long = toDecimal(exif.GPSLongitude)
+          } else {
+            long = -toDecimal(exif.GPSLongitude)
+          }
+          
+          this.gps = long + "," + lat
+          output = output + " with a longitude and latitude of : " + this.gps + "; "
+          
         } else {
           this.gps = ""
         }
