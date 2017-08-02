@@ -13,7 +13,9 @@
       <load-image exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" src="{{big}}"></load-image>
     </template>
     <template is="dom-if" if="[[gps]]">
-      <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map link</a>
+      <template is="dom-if" if="[[gmapLink]]">
+        <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map link</a>
+      </template>
     </template>
     <template is="dom-if" if="[[big]]">
       <image-base64 log="[[log]]" hidden="[[!value]]" orientation="{{orientation}}" url="[[big]]" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
@@ -35,6 +37,10 @@
       },
       big: {
         type: String
+      },
+      gmapLink: {
+        type: Boolean,
+        value: false
       },
       log: {
         type: Boolean,
