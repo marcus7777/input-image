@@ -17,7 +17,7 @@
         <a target='_blank' href$='https://www.google.co.uk/maps/search/[[gps]]' >Map</a>
       </template>
     </template>
-    <template is="dom-if" if="[[big]]">
+    <template is="dom-if" if="[[_big]]">
       <image-base64 log="[[log]]" hidden="[[!value]]" orientation="{{orientation}}" url="[[big]]" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
     </template>
   </template>
@@ -36,15 +36,16 @@
         value: 200, type:Number,
       },
       big: {
-        type: String
+        type: String,
+        observer: '_output'
       },
       gmapLink: {
         type: Boolean,
-        value: false
+        value: false,
       },
       log: {
         type: Boolean,
-        value: false
+        value: false,
       },
       title: {
         computed:"exifToInfo(exif)"
@@ -58,6 +59,14 @@
       camModel: {
         notify: true,
       },
+    },
+    _output: function(big) {
+      var that = this
+      this.debounce("set_big",
+        function() {
+          that._big = that.big
+        } 
+      , 750)
     },
     exifToInfo: function(exif) {
       var output = ""
