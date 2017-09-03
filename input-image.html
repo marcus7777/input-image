@@ -18,7 +18,7 @@
       </template>
     </template>
     <template is="dom-if" if="[[_big]]">
-      <image-base64 log="[[log]]" hidden="[[!value]]" orientation="{{orientation}}" url="[[big]]" base64="{{value}}" width="[[width]]" max-height="{{maxHeight}}" max-width="[[maxWidth]]"></image-base64>
+      <image-base64 log="[[log]]" hidden="[[!value]]" orientation="{{orientation}}" url="[[big]]" base64="{{value}}" max-height="[[maxHeight]]" max-width="[[maxWidth]]"></image-base64>
     </template>
   </template>
 </dom-module>
@@ -28,12 +28,6 @@
     properties:{
       value:{
         notify: true, type: String, value: "",
-      },
-      width: {
-        value: 200, type:Number,
-      },
-      setWidth: {
-        value: 200, type:Number,
       },
       big: {
         type: String,
@@ -116,7 +110,6 @@
     remove: function (){
       this.value = ""
       this.big = ""
-      this.set("width", this.setWidth)
       this.orientation = 1
     },
     ready: function (){
