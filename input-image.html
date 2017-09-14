@@ -8,6 +8,11 @@
 -->
 <dom-module id="input-image">
   <template>
+     <style>
+      img:hover {
+        opacity: 0.3;
+      }
+    </style>
     <template is="dom-if" if="[[value]]">
       <img style="max-width:200px" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
     </template>
