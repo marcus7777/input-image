@@ -12,7 +12,7 @@
       <img style="max-width:200px" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
     </template>
     <template is="dom-if" if="[[!value]]">
-      <load-image exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" icon="image:camera-alt" src="{{big}}"></load-image>
+      <load-image width="[[width]]" height="[[height]]" exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" icon="image:camera-alt" src="{{big}}"></load-image>
     </template>
     <template is="dom-if" if="[[gps]]">
       <template is="dom-if" if="[[gmapLink]]">
