@@ -10,7 +10,7 @@
   "dependencies": {
     "load-image": "marcus7777/load-image",
     "image-base64": "marcus7777/image-base64",
-    "icon-icons": "PolymerElements/icon-icons#~1.2.1"
+    "icon-icons": "PolymerElements/iron-icons#~1.2.1"
   },
   "devDependencies": {
     "iron-test-helpers": "*",
