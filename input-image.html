@@ -15,8 +15,8 @@
     </style>
     <template is="dom-if" if="[[value]]">
       <div style="max-width:100%;background:grey;line-height:100%;text-align:center;">
+        <iron-icon style="margin-top: -14px;margin-left: -14px;position: absolute;left: 50%;top: 50%;color: #fff;" icon="[[icon]]"></iron-icon>
         <img style="max-width:100%" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
-        <iron-icon style="margin-top:-3px;margin-left:3px;" icon="[[icon]]"></iron-icon>
       </div>
     </template>
     <template is="dom-if" if="[[!value]]">
