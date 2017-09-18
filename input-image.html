@@ -14,7 +14,10 @@
       }
     </style>
     <template is="dom-if" if="[[value]]">
-      <img style="max-width:200px" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
+      <div style="max-width:100%;background:grey;line-height:100%;text-align:center;">
+        <img style="max-width:100%" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
+        <iron-icon style="margin-top:-3px;margin-left:3px;" icon="[[icon]]"></iron-icon>
+      </div>
     </template>
     <template is="dom-if" if="[[!value]]">
       <load-image width="[[width]]" height="[[height]]" exif="{{exif}}" orientation="{{orientation}}" label="{{label}}" icon="image:camera-alt" src="{{big}}"></load-image>
@@ -59,6 +62,9 @@
       },
       camModel: {
         notify: true,
+      },
+      icon: {
+        value: "image:camera-alt"
       },
     },
     _output: function(big) {
