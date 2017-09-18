@@ -12,11 +12,11 @@
        img:hover {
          opacity: 0.3;
        }
-       .icon {
+       div .icon {
          opacity: 0;         
        }
-       .icon:hover {
-         opacity: 1;         
+       div:hover .icon {
+         opacity: 1;     
        }
     </style>
     <template is="dom-if" if="[[value]]">
