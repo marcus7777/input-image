@@ -22,7 +22,9 @@
     <template is="dom-if" if="[[value]]">
       <div style$="width:[[width]];height:[[height]];background:grey;line-height:100%;text-align:center;">
         <iron-icon class="icon" style="position:absolute;right:0;top:0;color:#fff" icon="close"></iron-icon>
-        <iron-icon class="icon" style$="margin-top: -14px;margin-left: -14px;position: absolute;left: [[halfWidth]];top: [[halfHeight]];color: #fff;" icon="[[icon]]"></iron-icon>
+        <div style$="margin-top:[[halfHeight]];margin-left:[[halfWidth]];position: absolute">
+          <iron-icon class="icon" style$="margin-top: -14px;margin-left: -14px;position: absolute;left: [[halfWidth]];top: [[halfHeight]];color: #fff;" icon="[[icon]]"></iron-icon>
+        </div>
         <img style="max-width:100%;max-height:100%" title="[[title]]" src="[[value]]" on-load="ready" on-tap="remove" />
       </div>
     </template>
