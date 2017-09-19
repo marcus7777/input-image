@@ -81,7 +81,7 @@
       },
     },
     half: function(size) {
-       var theNum = size.replace( /^\D+/g, '')
+       var theNum = +size.replace( /\D/g, '')
        var theUnit = size.replace(theNum, '')
        return (+theNum/2) + theUnit
     },
