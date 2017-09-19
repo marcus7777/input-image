@@ -21,7 +21,9 @@
     </style>
     <template is="dom-if" if="[[value]]">
       <div style$="width:[[width]];height:[[height]];background:grey;line-height:100%;text-align:center;">
-        <iron-icon class="icon" style="position:absolute;right:0;top:0;color:#fff" icon="close"></iron-icon>
+        <div style$="width:[[width]];position: absolute">
+          <iron-icon class="icon" style="right:0;top:0;color:#fff" icon="close"></iron-icon>
+        </div>
         <div style$="margin-top:[[halfHeight]];margin-left:[[halfWidth]];position: absolute">
           <iron-icon class="icon" style="margin-top: -12px;margin-left: -12px;color: #fff;" icon="[[icon]]"></iron-icon>
         </div>
